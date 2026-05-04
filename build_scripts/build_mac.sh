@@ -21,6 +21,9 @@ echo "==> Running PyInstaller..."
 /Library/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python \
     -m PyInstaller wfrp_tow_converter.spec --noconfirm
 
+echo "==> Stripping macOS quarantine flag..."
+xattr -dr com.apple.quarantine "dist/WFRP4e to TOW Converter.app" 2>/dev/null || true
+
 echo "==> Zipping .app bundle..."
 cd dist
 zip -r "WFRP4e_to_TOW_Converter_mac.zip" "WFRP4e to TOW Converter.app"
@@ -30,3 +33,8 @@ echo ""
 echo "✓ Build complete."
 echo "  App   : dist/WFRP4e to TOW Converter.app"
 echo "  Zip   : dist/WFRP4e_to_TOW_Converter_mac.zip"
+echo ""
+echo "NOTE: The app is unsigned. Recipients on macOS must:"
+echo "  Option A) Right-click → Open → Open"
+echo "  Option B) System Settings → Privacy & Security → Open Anyway"
+echo "  Option C) xattr -dr com.apple.quarantine \"WFRP4e to TOW Converter.app\""

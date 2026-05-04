@@ -22,7 +22,7 @@ Pre-built executables are attached to each [GitHub Release](../../releases).
 
 | Platform | File | Instructions |
 |---|---|---|
-| macOS | `WFRP4e_to_TOW_Converter_mac.zip` | Unzip → right-click → Open |
+| macOS | `WFRP4e_to_TOW_Converter_mac.zip` | Unzip → **right-click → Open** → Open (required first run) |
 | Windows | `WFRP4e_to_TOW_Converter.exe` | Run directly |
 | Linux | `WFRP4e_to_TOW_Converter_linux.tar.gz` | Extract → `chmod +x` → run |
 
@@ -35,6 +35,29 @@ Pre-built executables are attached to each [GitHub Release](../../releases).
 3. Select your input JSON file and an output folder.
 4. Click **Convert**.
 5. Import the output file(s) into your TOW world via Mana's Compendium Importer.
+
+---
+
+## macOS: "Cannot Verify" / Gatekeeper Warning
+
+Because the app is not signed with an Apple Developer certificate, macOS will block it on first run. Three ways to open it:
+
+**Option A — Right-click method (easiest):**
+1. Right-click `WFRP4e to TOW Converter.app`
+2. Click **Open**
+3. Click **Open** again in the dialog
+
+**Option B — System Settings:**
+1. Try to open the app normally (it will be blocked)
+2. Go to **System Settings → Privacy & Security**
+3. Scroll down to the blocked app and click **Open Anyway**
+
+**Option C — Terminal (one-time command):**
+```bash
+xattr -dr com.apple.quarantine "/path/to/WFRP4e to TOW Converter.app"
+```
+
+After using any of these methods once, the app will open normally from then on.
 
 ---
 
